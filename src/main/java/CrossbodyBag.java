@@ -40,7 +40,7 @@ public class CrossbodyBag extends Bag {
      * @param numberOfStraps
      */
 
-    private final int numberOfStraps;
+    private int numberOfStraps;
 
     public CrossbodyBag (String color, int capacity, int numberOfStraps) {
         super(color, capacity);

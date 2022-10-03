@@ -88,7 +88,7 @@ public abstract class Bag {
 
     public boolean addItem (String item) {
         if (this.numberOfContents < this.capacity) {
-            this.contents[numberOfContents] = item;
+            this.contents[this.numberOfContents] = item;
             this.numberOfContents += 1;
             return true;
         }
@@ -113,9 +113,9 @@ public abstract class Bag {
         if (this.numberOfContents == 0) {
             return null;
         }
-        String ret = this.contents[numberOfContents - 1];
-        this.contents[numberOfContents - 1] = "";
-        numberOfContents -= 1;
+        String ret = this.contents[this.numberOfContents - 1];
+        this.contents[this.numberOfContents - 1] = "";
+        this.numberOfContents -= 1;
 
         return ret;
     }
@@ -131,6 +131,13 @@ public abstract class Bag {
      */
     public void increaseCapacity(int n) {
         this.capacity += n;
+
+        String[] newList = new String[this.capacity];
+        for (int i = 0; i < this.numberOfContents; i++) {
+            newList[i] = this.contents[i];
+        }
+
+        this.contents = newList;
 
     }
 
